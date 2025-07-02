@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>てくポ友達紹介説明マニュアル（A4 1枚版）</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 15mm;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.4;
+            font-size: 11px;
+            -webkit-print-color-adjust: exact;
+            color-adjust: exact;
+        }
+
+        .container {
+            max-width: 100%;
+            padding: 5mm;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #e8f5e8, #f1f8e9);
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 12px;
+            border: 2px solid #4caf50;
+        }
+
+        .header h1 {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 5px;
+            color: #2e7d32;
+        }
+
+        .teacher-warning {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            color: #1976d2;
+            padding: 12px;
+            border-radius: 10px;
+            margin: 8px 0;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 700;
+            border: 2px solid #2196f3;
+        }
+
+        .major-warning {
+            background: linear-gradient(135deg, #ffebee, #ffcdd2);
+            color: #d32f2f;
+            padding: 12px;
+            border-radius: 10px;
+            margin: 8px 0;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 700;
+            border: 2px solid #f44336;
+        }
+
+        .comparison-container {
+            display: flex;
+            gap: 15px;
+            margin: 12px 0;
+        }
+
+        .comparison-section {
+            flex: 1;
+            background: #fafafa;
+            border-radius: 10px;
+            padding: 12px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .comparison-header {
+            background: linear-gradient(135deg, #ff8a65, #ff5722);
+            color: white;
+            padding: 8px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .role-label {
+            font-size: 10px;
+            font-weight: 600;
+            color: white;
+            background: rgba(255, 255, 255, 0.3);
+            padding: 2px 6px;
+            border-radius: 8px;
+            margin-right: 5px;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 10px;
+            padding: 8px;
+            background: #ffffff;
+            border-radius: 6px;
+            border-left: 3px solid;
+        }
+
+        .referrer-step {
+            border-left-color: #4caf50;
+        }
+
+        .referee-step {
+            border-left-color: #ffb300;
+        }
+
+        .step-number {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 11px;
+            flex-shrink: 0;
+            border: 1px solid;
+        }
+
+        .referrer-step .step-number {
+            background: #4caf50;
+            border-color: #2e7d32;
+        }
+
+        .referee-step .step-number {
+            background: #ffb300;
+            border-color: #ff9800;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-title {
+            font-weight: 600;
+            font-size: 11px;
+            margin-bottom: 3px;
+            color: #333;
+        }
+
+        .step-description {
+            color: #666;
+            font-size: 9px;
+            margin-bottom: 5px;
+        }
+
+        .script-box {
+            background: linear-gradient(135deg, #e8f5e8, #f1f8e9);
+            border: 1px solid #4caf50;
+            border-radius: 6px;
+            padding: 6px;
+            margin: 4px 0;
+            position: relative;
+        }
+
+        .script-box::before {
+            content: "💬";
+            position: absolute;
+            top: -8px;
+            left: 5px;
+            background: #4caf50;
+            color: white;
+            padding: 1px 4px;
+            border-radius: 6px;
+            font-size: 8px;
+        }
+
+        .script-text {
+            color: #2e7d32;
+            font-weight: 600;
+            font-style: italic;
+            margin-top: 3px;
+            font-size: 9px;
+        }
+
+        .misconception-box {
+            background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+            border: 1px solid #ff9800;
+            border-radius: 8px;
+            padding: 8px;
+            margin: 8px 0;
+        }
+
+        .misconception-title {
+            color: #e65100;
+            font-weight: 700;
+            font-size: 11px;
+            margin-bottom: 5px;
+        }
+
+        .wrong-right {
+            display: flex;
+            gap: 5px;
+            margin: 5px 0;
+        }
+
+        .wrong, .right {
+            flex: 1;
+            padding: 6px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 9px;
+            text-align: center;
+        }
+
+        .wrong {
+            background: #ffebee;
+            color: #c62828;
+            border: 1px solid #e57373;
+        }
+
+        .right {
+            background: #e8f5e8;
+            color: #2e7d32;
+            border: 1px solid #81c784;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #fff8e1, #ffecb3);
+            color: #e65100;
+            padding: 12px;
+            border-radius: 10px;
+            margin: 8px 0;
+            text-align: center;
+            border: 2px solid #ffb300;
+        }
+
+        .highlight-box h3 {
+            color: #e65100;
+            margin-bottom: 5px;
+            font-size: 13px;
+        }
+
+        .user-id-example {
+            background: #e8f5e8;
+            color: #2e7d32;
+            padding: 5px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 4px 0;
+            border: 1px solid #4caf50;
+            font-size: 9px;
+        }
+
+        h3 {
+            color: #2e7d32;
+            margin-bottom: 8px;
+            font-size: 12px;
+        }
+
+        .orange-header h3 {
+            color: #ff9800;
+        }
+
+        .important-note {
+            background: #fff3c4;
+            padding: 5px;
+            border-radius: 5px;
+            margin-top: 4px;
+            font-size: 8px;
+            border: 1px solid #ffb300;
+        }
+
+        /* 印刷最適化 */
+        @media print {
+            body {
+                font-size: 10px;
+                line-height: 1.3;
+            }
+            
+            .container {
+                padding: 0;
+            }
+            
+            .step {
+                margin-bottom: 8px;
+                padding: 6px;
+            }
+            
+            .script-box {
+                padding: 4px;
+            }
+            
+            .major-warning {
+                font-size: 11px;
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>てくポ友達紹介説明マニュアル</h1>
+        </div>
+
+        <div class="teacher-warning">
+            2つのケースで説明方法が異なります
+        </div>
+
+        <div class="major-warning">
+            ⚠️ 最重要：紹介者は「8人まで申請できる」ではない
+        </div>
+
+        <!-- 紹介者・紹介された人比較セクション -->
+        <div class="comparison-container">
+            <!-- 紹介者向け説明 -->
+            <div class="comparison-section">
+                <div class="comparison-header">
+                    <span class="role-label">紹介者</span>
+                    👥 紹介する人への説明
+                </div>
+
+                <h3>📋 説明手順</h3>
+                
+                <div class="step referrer-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <div class="step-title">ユーザーIDを確認</div>
+                        <div class="step-description">ハイフンを除いた数字のみを準備</div>
+                        <div class="script-box">
+                            <div class="script-text">「アプリでご自分のユーザーIDを確認してください。ハイフンは除いた数字だけをお友達に教えます」</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step referrer-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <div class="step-title">「IDを教えるだけ」と強調</div>
+                        <div class="step-description">最大8人まで教えることができる</div>
+                        <div class="script-box">
+                            <div class="script-text">「あなたの役割は、お友達にIDを教えるだけです。年間8人まで教えることができます」</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step referrer-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <div class="step-title">相手が手続きすることを説明</div>
+                        <div class="step-description">紹介者は待っているだけでよい</div>
+                        <div class="script-box">
+                            <div class="script-text">「手続きはお友達がします。あなたは待っているだけで、翌月10日頃に50ポイントもらえます」</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="misconception-box">
+                    <div class="misconception-title">🎯 重要ポイント</div>
+                    <div class="wrong-right">
+                        <div class="wrong">❌ 間違い<br>「8回申請できます」</div>
+                        <div class="right">✅ 正しい<br>「8人にIDを教えられます」</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 紹介された人向け説明 -->
+            <div class="comparison-section">
+                <div class="comparison-header">
+                    <span class="role-label">お友達</span>
+                    🎯 紹介された人への説明
+                </div>
+
+                <h3 class="orange-header">📝 説明手順</h3>
+                
+                <div class="step referee-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <div class="step-title">てくポユーザーの確認</div>
+                        <div class="step-description">アプリホーム画面「てくポ情報」で100pt確認</div>
+                        <div class="script-box">
+                            <div class="script-text">「まず、アプリに登録して100ポイントもらえているか確認しましょう。ホーム画面の『てくポ情報』で見られます」</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step referee-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <div class="step-title">友達紹介項目への案内</div>
+                        <div class="step-description">承認されないと友達紹介項目が表示されない</div>
+                        <div class="script-box">
+                            <div class="script-text">「申請項目が表示されない場合は、申請をサポートし承認まで1～3日お待ちください。承認後、八王子市メニューの『八王子市からのお知らせ』＞『友達紹介』項目より申請できます」</div>
+                        </div>
+                        <div class="important-note">
+                            <strong>💡 重要：</strong>友達紹介申請項目はてくポに承認されないと表示されません
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step referee-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <div class="step-title">紹介者のIDを正確に入力</div>
+                        <div class="step-description">教えてもらったIDをハイフンなしで入力</div>
+                        <div class="script-box">
+                            <div class="script-text">「紹介してくれた方から聞いたIDを、ハイフンなしの数字のみで入力してください」</div>
+                        </div>
+                        <div class="user-id-example">
+                            ❌ 間違い: 123-456-789<br>
+                            ✅ 正しい: 123456789 (ハイフンなし)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- まとめ -->
+        <div class="major-warning">
+            🎯 申請は一人1回まで　2回目以降はポイント付与されません
+        </div>
+
+        <!-- ポイント獲得の説明 -->
+        <div class="highlight-box">
+            <h3>🎉 ポイント獲得の説明</h3>
+            <p>申請完了後の<strong>翌月10日頃</strong>に、紹介者・お友達双方に<strong>50ポイント</strong>が付与されます</p>
+        </div>
+    </div>
+</body>
+</html>
